@@ -1,29 +1,24 @@
-import java.awt.EventQueue;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.Dimension;
 
-public class Main extends JFrame {
+public class Main {
 
-    public Main() {
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Hello");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        initUI();
-    }
+        JLabel label = new JLabel("Hello World");
+        frame.getContentPane().add(label);
 
-    private void initUI() {
-
-        setTitle("Simple example");
-        setSize(300, 200);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(400, 300));
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-
-        EventQueue.invokeLater(new Runnable() {
-
-            @Override
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Main ex = new Main();
-                ex.setVisible(true);
+                createAndShowGUI();
             }
         });
     }
